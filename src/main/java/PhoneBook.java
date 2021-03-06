@@ -2,25 +2,28 @@ import java.util.*;
 
 public class PhoneBook {
 
-    private Map<String, String> phoneBook = new HashMap<>();
+    private final Map<String, ArrayList<String>> phoneBook = new HashMap<>();
 
-    public void addContact(String phone, String name) {
-        phoneBook.put(phone, name);
-    }
-
-    public void getPhoneBook() {
-        for (String key : phoneBook.keySet()) {
-            String value = phoneBook.get(key);
-            System.out.println(key + " : " + value);
+    public void addContact(String name, String phone) {
+        if (phoneBook.containsKey(name)) {
+            phoneBook.get(name).add(phone);
+        } else {
+            ArrayList<String> numbs = new ArrayList<>();
+            numbs.add(phone);
+            phoneBook.put(name, numbs);
         }
     }
+    public void getAllContscts () {
+        System.out.println(phoneBook.entrySet());
+    }
 
-    public void getContact(String name) {
-        for (String key : phoneBook.keySet()) {
-            String value = phoneBook.get(key);
-            if (value == name) {
-                System.out.println(key + " : " + value);
-            }
+    public List<String> getContact(String name) {
+        if (phoneBook.containsKey(name)) {
+            System.out.println("Номера людей с фамилией " + name + ":");
+            System.out.println(phoneBook.get(name));
+            return phoneBook.get(name);
         }
+
+        return null;
     }
 }

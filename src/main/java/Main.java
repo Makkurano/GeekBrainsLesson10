@@ -43,15 +43,21 @@ public class Main {
         }
         //выводим поулченный массив
         System.out.println(fruitsCount);
-
+        System.out.println("=======Задача 2========");
         PhoneBook pb = new PhoneBook();
-        pb.addContact("12341234", "Иванов");
-        pb.addContact("66666", "Иванов");
-        pb.addContact("2222222", "Петров");
-        pb.addContact("333333", "Иночкин");
+        pb.addContact("Иванов", "1111");
+        pb.addContact("Иванов", "2222");
+        pb.addContact("Петров", "44444");
+        pb.addContact("Иночкин", "77777");
+        pb.addContact("Сидоров", "66666");
+        pb.addContact("Иванов", "33333");
+        pb.addContact("Петров", "55555");
 
-        pb.getPhoneBook();
-        System.out.println("===АААААА=====ПОЛУЧИЛООООСЬ====");
+        System.out.println("Все номера из книги");
+        pb.getAllContscts();
+        System.out.println("==================");
+
         pb.getContact("Иванов");
+        pb.getContact("Петров");
     }
 }
